@@ -39,19 +39,19 @@ class ProfillePageController: UIViewController {
         circleBackground.layer.cornerRadius = circleBackground.frame.height/2
         circleBackground.clipsToBounds = true
 
-        githubButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        githubButton.addTarget(self, action: #selector(goToLink), for: .touchUpInside)
         githubButton.tag = 1
 
-        linkedInButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        linkedInButton.addTarget(self, action: #selector(goToLink), for: .touchUpInside)
         linkedInButton.tag = 2
 
-        facebookButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        facebookButton.addTarget(self, action: #selector(goToLink), for: .touchUpInside)
         facebookButton.tag = 3
 
         background.transform = CGAffineTransform(rotationAngle: CGFloat(170 * Double.pi/180))
     }
     
-    @objc func buttonAction(sender: UIButton!) {
+    @objc func goToLink(sender: UIButton!) {
         if sender.tag == 1{
             UIApplication.shared.open(NSURL(string: myProfile.sosmed[0])! as URL)
         } else if sender.tag == 2{

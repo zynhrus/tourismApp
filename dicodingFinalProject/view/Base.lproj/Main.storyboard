@@ -11,23 +11,29 @@
         <!--Home-->
         <scene sceneID="g4t-pi-UUb">
             <objects>
-                <viewController id="H85-iL-Qdu" sceneMemberID="viewController">
+                <viewController id="H85-iL-Qdu" customClass="ViewController" customModule="dicodingFinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Omo-sR-qaE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Main Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1Q-eQ-M6o">
-                                <rect key="frame" x="167" y="145" width="80" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ac5-T1-2FJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0fr-od-CVU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0fr-od-CVU" firstAttribute="bottom" secondItem="Ac5-T1-2FJ" secondAttribute="bottom" id="Pw5-eg-gYU"/>
+                            <constraint firstItem="Ac5-T1-2FJ" firstAttribute="top" secondItem="0fr-od-CVU" secondAttribute="top" id="kVv-0Q-meW"/>
+                            <constraint firstItem="0fr-od-CVU" firstAttribute="trailing" secondItem="Ac5-T1-2FJ" secondAttribute="trailing" id="nwg-tv-7Ug"/>
+                            <constraint firstItem="Ac5-T1-2FJ" firstAttribute="leading" secondItem="0fr-od-CVU" secondAttribute="leading" id="t8X-he-CP8"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="gsY-7G-0uw"/>
+                    <connections>
+                        <outlet property="tableView" destination="Ac5-T1-2FJ" id="W6i-bv-tVU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIb-xd-bwK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
