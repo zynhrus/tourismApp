@@ -11,6 +11,7 @@ class TableViewCellModel {
     let image: String?
     let name: String
     let address: String
+    let description: String
     let likeCount: Int
     var imageData: Data?
     
@@ -18,11 +19,13 @@ class TableViewCellModel {
         image:String,
         name:String,
         address:String,
+        description:String,
         likeCount:Int
     ) {
         self.image = image
         self.name = name
         self.address = address
+        self.description = description
         self.likeCount = likeCount
     }
 }

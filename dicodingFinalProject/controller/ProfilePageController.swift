@@ -31,7 +31,7 @@ class ProfillePageController: UIViewController {
         job.text = myProfile.job
         
         myBio.text = myProfile.description
-        myBio.numberOfLines = 12
+        myBio.numberOfLines = 0
         
         circleBackground.layer.borderWidth = 1
         circleBackground.layer.masksToBounds = false

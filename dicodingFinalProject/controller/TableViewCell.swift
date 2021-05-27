@@ -38,6 +38,10 @@ class TableViewCell: UITableViewCell {
         likeCount.text = String(viewModel.likeCount)
         likeBackground.layer.cornerRadius = 12
         
+        loadImage(with: viewModel)
+    }
+    
+    func loadImage(with viewModel: TableViewCellModel){
         if let data = viewModel.imageData {
             placeImage.image = UIImage(data: data)
         }
@@ -54,5 +58,4 @@ class TableViewCell: UITableViewCell {
             task.resume()
         }
     }
-    
 }

@@ -17,6 +17,8 @@
 		97358EFC265D7A04004A3D46 /* ProfilePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97358EFB265D7A04004A3D46 /* ProfilePageController.swift */; };
 		976BCC2E265F7137005719C7 /* apiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976BCC2D265F7137005719C7 /* apiModel.swift */; };
 		976BCC30265F8620005719C7 /* tableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976BCC2F265F8620005719C7 /* tableViewCellModel.swift */; };
+		976BCC33265FFFAE005719C7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976BCC31265FFFAE005719C7 /* DetailViewController.swift */; };
+		976BCC34265FFFAE005719C7 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 976BCC32265FFFAE005719C7 /* DetailViewController.xib */; };
 		9773BD52265E8B13005940F6 /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9773BD51265E8B13005940F6 /* profile.swift */; };
 		9773BD55265ECD14005940F6 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9773BD54265ECD14005940F6 /* APICaller.swift */; };
 		9773BD5A265ECE55005940F6 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9773BD58265ECE55005940F6 /* TableViewCell.swift */; };
@@ -36,6 +38,8 @@
 		97358EFB265D7A04004A3D46 /* ProfilePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageController.swift; sourceTree = "<group>"; };
 		976BCC2D265F7137005719C7 /* apiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiModel.swift; sourceTree = "<group>"; };
 		976BCC2F265F8620005719C7 /* tableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewCellModel.swift; sourceTree = "<group>"; };
+		976BCC31265FFFAE005719C7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		976BCC32265FFFAE005719C7 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		9773BD51265E8B13005940F6 /* profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
 		9773BD54265ECD14005940F6 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		9773BD58265ECE55005940F6 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -75,8 +79,8 @@
 				9773BD53265ECD02005940F6 /* helper */,
 				9773BD4F265E8A88005940F6 /* base */,
 				9773BD4E265E8A73005940F6 /* controller */,
-				9773BD50265E8AEB005940F6 /* model */,
 				9773BD4D265E8A4E005940F6 /* view */,
+				9773BD50265E8AEB005940F6 /* model */,
 				97358EE8265D6EA0004A3D46 /* Assets.xcassets */,
 				97358EEA265D6EA0004A3D46 /* LaunchScreen.storyboard */,
 				97358EED265D6EA0004A3D46 /* Info.plist */,
@@ -90,6 +94,7 @@
 				97358EE5265D6E9F004A3D46 /* Main.storyboard */,
 				97358EF7265D6FAC004A3D46 /* ProfilePage.storyboard */,
 				9773BD59265ECE55005940F6 /* TableViewCell.xib */,
+				976BCC32265FFFAE005719C7 /* DetailViewController.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -97,9 +102,10 @@
 		9773BD4E265E8A73005940F6 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				97358EFB265D7A04004A3D46 /* ProfilePageController.swift */,
 				97358EE3265D6E9F004A3D46 /* ViewController.swift */,
+				97358EFB265D7A04004A3D46 /* ProfilePageController.swift */,
 				9773BD58265ECE55005940F6 /* TableViewCell.swift */,
+				976BCC31265FFFAE005719C7 /* DetailViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97358EEC265D6EA0004A3D46 /* LaunchScreen.storyboard in Resources */,
+				976BCC34265FFFAE005719C7 /* DetailViewController.xib in Resources */,
 				9773BD5B265ECE55005940F6 /* TableViewCell.xib in Resources */,
 				97358EE9265D6EA0004A3D46 /* Assets.xcassets in Resources */,
 				97358EF8265D6FAC004A3D46 /* ProfilePage.storyboard in Resources */,
@@ -210,6 +217,7 @@
 				976BCC2E265F7137005719C7 /* apiModel.swift in Sources */,
 				976BCC30265F8620005719C7 /* tableViewCellModel.swift in Sources */,
 				9773BD52265E8B13005940F6 /* profile.swift in Sources */,
+				976BCC33265FFFAE005719C7 /* DetailViewController.swift in Sources */,
 				9773BD5A265ECE55005940F6 /* TableViewCell.swift in Sources */,
 				97358EE2265D6E9F004A3D46 /* SceneDelegate.swift in Sources */,
 			);

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     private var viewModels = [TableViewCellModel]()
@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITableViewDelegate {
         tableView.delegate = self
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "tableCell")
         self.tableView.rowHeight = 190
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         
         APICaller.shared.getAllData{ result in
             switch result {
@@ -29,6 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate {
                         image: $0.image ?? "",
                         name: $0.name ?? "M/A",
                         address: $0.address ?? "",
+                        description: $0.description ?? "",
                         likeCount: $0.like ?? 0
                     )
                 })
@@ -41,9 +44,7 @@ class ViewController: UIViewController, UITableViewDelegate {
             }
         }
     }
-}
-
-extension ViewController : UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
     }
@@ -60,6 +61,17 @@ extension ViewController : UITableViewDataSource {
             return UITableViewCell()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            // Memanggil View Controller dengan berkas NIB/XIB di dalamnya
+            let detail = DetailViewController(nibName: "DetailViewController", bundle: nil)
+            
+            // Mengirim data hero
+            detail.place = viewModels[indexPath.row]
+            
+            // Push/mendorong view controller lain
+            self.navigationController?.pushViewController(detail, animated: true)
+        }
 }
 
 extension UIImageView {
