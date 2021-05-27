@@ -25,29 +25,29 @@ class ProfillePageController: UIViewController {
         profileImage.image = myProfile.photo
         profileImage.layer.cornerRadius = profileImage.frame.height/2
         profileImage.clipsToBounds = true
-
+        
         name.text = myProfile.name
-
+        
         job.text = myProfile.job
-
+        
         myBio.text = myProfile.description
         myBio.numberOfLines = 12
-
+        
         circleBackground.layer.borderWidth = 1
         circleBackground.layer.masksToBounds = false
         circleBackground.layer.borderColor = UIColor.white.cgColor
         circleBackground.layer.cornerRadius = circleBackground.frame.height/2
         circleBackground.clipsToBounds = true
-
+        
         githubButton.addTarget(self, action: #selector(goToLink), for: .touchUpInside)
         githubButton.tag = 1
-
+        
         linkedInButton.addTarget(self, action: #selector(goToLink), for: .touchUpInside)
         linkedInButton.tag = 2
-
+        
         facebookButton.addTarget(self, action: #selector(goToLink), for: .touchUpInside)
         facebookButton.tag = 3
-
+        
         background.transform = CGAffineTransform(rotationAngle: CGFloat(170 * Double.pi/180))
     }
     

@@ -51,11 +51,9 @@ extension ViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as? TableViewCell {
             
-            cell.placeImage.loadImageUrl(url: URL(string: viewModels[indexPath.row].image)!)
-            cell.placeName.text = viewModels[indexPath.row].name
-            cell.placeLocation.text = viewModels[indexPath.row].address
-            cell.likeCount.text = String(viewModels[indexPath.row].likeCount)
-            cell.likeBackground.layer.cornerRadius = 12
+            cell.placeImage.loadImageUrl(url: URL(string: viewModels[indexPath.row].image!)!)
+            
+            cell.configure(with: viewModels[indexPath.row])
             
             return cell
         } else {

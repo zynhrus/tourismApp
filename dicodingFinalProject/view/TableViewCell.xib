@@ -91,8 +91,8 @@
             <connections>
                 <outlet property="likeBackground" destination="L2s-09-vi6" id="z0D-rK-ddB"/>
                 <outlet property="likeCount" destination="mmq-tO-8R2" id="cWy-QW-uKd"/>
+                <outlet property="placeAddress" destination="edH-bK-sWZ" id="KRM-dA-BiS"/>
                 <outlet property="placeImage" destination="SKK-wo-hkB" id="y8z-Bl-FP2"/>
-                <outlet property="placeLocation" destination="edH-bK-sWZ" id="KRM-dA-BiS"/>
                 <outlet property="placeName" destination="Rn6-mX-CJS" id="9gO-4t-UYR"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="161.38392857142856"/>
