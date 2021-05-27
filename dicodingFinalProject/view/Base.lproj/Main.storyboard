@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--View Controller-->
         <scene sceneID="g4t-pi-UUb">
             <objects>
                 <viewController id="H85-iL-Qdu" customClass="ViewController" customModule="dicodingFinalProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ac5-T1-2FJ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -30,14 +30,14 @@
                             <constraint firstItem="Ac5-T1-2FJ" firstAttribute="leading" secondItem="0fr-od-CVU" secondAttribute="leading" id="t8X-he-CP8"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="gsY-7G-0uw"/>
+                    <navigationItem key="navigationItem" id="12R-jy-VKj"/>
                     <connections>
                         <outlet property="tableView" destination="Ac5-T1-2FJ" id="W6i-bv-tVU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIb-xd-bwK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="178" y="27"/>
+            <point key="canvasLocation" x="1086.9565217391305" y="26.785714285714285"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2bl-eo-K1l">
@@ -49,7 +49,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="H85-iL-Qdu" kind="relationship" relationship="viewControllers" id="Qd1-Xm-dny"/>
+                        <segue destination="USf-P3-aeF" kind="relationship" relationship="viewControllers" id="Qd1-Xm-dny"/>
                         <segue destination="S8c-rX-Jem" kind="relationship" relationship="viewControllers" id="yz6-Ip-iXw"/>
                     </connections>
                 </tabBarController>
@@ -65,7 +65,26 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZZA-Z0-UoC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="27"/>
+            <point key="canvasLocation" x="1715.9420289855075" y="26.785714285714285"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="Wjd-Si-xfa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="USf-P3-aeF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="gsY-7G-0uw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="YHJ-p4-SHc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="H85-iL-Qdu" kind="relationship" relationship="rootViewController" id="QUm-1y-dCx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Mi-Fc-72m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="176.81159420289856" y="26.785714285714285"/>
         </scene>
     </scenes>
     <resources>

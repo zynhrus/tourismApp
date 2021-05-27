@@ -11,6 +11,8 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var placeName: UILabel!
     @IBOutlet weak var placeLocation: UILabel!
+    @IBOutlet weak var likeBackground: UIView!
+    @IBOutlet weak var likeCount: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
