@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		970CB69C2660D91A000BB77C /* DetailPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970CB69B2660D91A000BB77C /* DetailPageController.swift */; };
 		97358EE0265D6E9F004A3D46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97358EDF265D6E9F004A3D46 /* AppDelegate.swift */; };
 		97358EE2265D6E9F004A3D46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97358EE1265D6E9F004A3D46 /* SceneDelegate.swift */; };
 		97358EE4265D6E9F004A3D46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97358EE3265D6E9F004A3D46 /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		970CB69B2660D91A000BB77C /* DetailPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageController.swift; sourceTree = "<group>"; };
 		97358EDC265D6E9F004A3D46 /* dicodingFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dicodingFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97358EDF265D6E9F004A3D46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97358EE1265D6E9F004A3D46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				97358EFB265D7A04004A3D46 /* ProfilePageController.swift */,
 				9773BD58265ECE55005940F6 /* TableViewCell.swift */,
 				976BCC31265FFFAE005719C7 /* DetailViewController.swift */,
+				970CB69B2660D91A000BB77C /* DetailPageController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				970CB69C2660D91A000BB77C /* DetailPageController.swift in Sources */,
 				97358EFC265D7A04004A3D46 /* ProfilePageController.swift in Sources */,
 				9773BD55265ECD14005940F6 /* APICaller.swift in Sources */,
 				97358EE4265D6E9F004A3D46 /* ViewController.swift in Sources */,

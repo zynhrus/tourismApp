@@ -27,6 +27,8 @@ final class APICaller {
                 let jsonData = try JSONDecoder().decode(Initial.self, from: data)
                 let places = jsonData.places
                 
+                
+                
                 completion(.success(places!))
             }
             
