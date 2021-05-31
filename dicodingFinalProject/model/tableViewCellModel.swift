@@ -13,6 +13,8 @@ class TableViewCellModel {
     let address: String
     let description: String
     let likeCount: Int
+    let latitude: Float
+    let longitude: Float
     var imageData: Data?
     
     init(
@@ -20,12 +22,16 @@ class TableViewCellModel {
         name:String,
         address:String,
         description:String,
-        likeCount:Int
+        likeCount:Int,
+        latitude:Float,
+        longitude:Float
     ) {
         self.image = image
         self.name = name
         self.address = address
         self.description = description
         self.likeCount = likeCount
+        self.latitude = latitude
+        self.longitude = longitude
     }
 }

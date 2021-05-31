@@ -19,12 +19,8 @@ struct Place: Codable {
     let name: String?
     let description: String?
     let address: String?
-    let location: Location?
-    let like: Int?
-    let image: String?
-}
-
-struct Location: Codable {
     let longitude: Float?
     let latitude: Float?
+    let like: Int?
+    let image: String?
 }

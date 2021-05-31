@@ -39,7 +39,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         name: $0.name ?? "M/A",
                         address: $0.address ?? "",
                         description: $0.description ?? "",
-                        likeCount: $0.like ?? 0
+                        likeCount: $0.like ?? 0,
+                        latitude: $0.latitude ?? 0,
+                        longitude: $0.longitude ?? 0
                     )
                 })
 
@@ -100,7 +102,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         name: $0.name ?? "M/A",
                         address: $0.address ?? "",
                         description: $0.description ?? "",
-                        likeCount: $0.like ?? 0
+                        likeCount: $0.like ?? 0,
+                        latitude: $0.latitude ?? 0,
+                        longitude: $0.longitude ?? 0
                     )
             }).filter({$0.name.localizedCaseInsensitiveContains(text)})
 
@@ -127,7 +131,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         name: $0.name ?? "M/A",
                         address: $0.address ?? "",
                         description: $0.description ?? "",
-                        likeCount: $0.like ?? 0
+                        likeCount: $0.like ?? 0,
+                        latitude: $0.latitude ?? 0,
+                        longitude: $0.longitude ?? 0
                     )
             })
 

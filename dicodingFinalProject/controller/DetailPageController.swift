@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class DetailPageController: UIViewController, UIScrollViewDelegate {
     var place: TableViewCellModel?
@@ -14,8 +15,12 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
     var placeDescription: UILabel!
     var placeName: UILabel!
     var placeAddress: UILabel!
+    var test: UILabel!
     var headerContainerView: UIView!
     var placeImage: UIImageView!
+    let mapView = MKMapView()
+    let annotation = MKPointAnnotation()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +85,15 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
         placeImage.clipsToBounds = true
         placeImage.contentMode = .scaleAspectFill
         self.headerContainerView.addSubview(placeImage)
+        
+        self.scrollView.addSubview(mapView)
+        
+        annotation.title = place?.name
+        annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(place!.latitude), longitude: CLLocationDegrees(place!.longitude))
+        self.mapView.addAnnotation(annotation)
+        
+        let region = MKCoordinateRegion(center: annotation.coordinate, latitudinalMeters: 100000, longitudinalMeters: 100000)
+        mapView.setRegion(region, animated: true)
     }
     
     func setViewConstraints() {
@@ -98,7 +112,7 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
         NSLayoutConstraint.activate([
             self.placeDescription.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
             self.placeDescription.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
-            self.placeDescription.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor, constant: -100),
+            self.placeDescription.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor, constant: -200),
             self.placeDescription.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: screenSize.height / 4 )
         ])
         
@@ -108,7 +122,14 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
             self.placeName.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
             self.placeName.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
             self.placeName.bottomAnchor.constraint(equalTo: self.placeDescription.topAnchor, constant: -10),
-//            self.placeName.topAnchor.constraint(equalTo: self.placeDescription.bottomAnchor, constant: 0),
+        ])
+        
+        self.mapView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.mapView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+            self.mapView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
+            self.mapView.topAnchor.constraint(equalTo: self.placeDescription.bottomAnchor, constant: 20),
+            self.mapView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor, constant: -20),
         ])
 
         // Header Container Constraints
