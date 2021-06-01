@@ -16,13 +16,10 @@ class TableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
     override func prepareForReuse() {
@@ -33,6 +30,9 @@ class TableViewCell: UITableViewCell {
     }
     
     func configure(with viewModel: TableViewCellModel) {
+        placeImage.heroID = "image\(String(viewModel.id))"
+        placeName.heroID = "title\(String(viewModel.id))"
+        placeAddress.heroID = "address\(String(viewModel.id))"
         placeName.text = viewModel.name
         placeAddress.text = viewModel.address
         likeCount.text = String(viewModel.likeCount)
@@ -54,7 +54,6 @@ class TableViewCell: UITableViewCell {
                     }
                 }
             }
-            
             task.resume()
         }
     }

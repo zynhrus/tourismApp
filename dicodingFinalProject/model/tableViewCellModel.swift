@@ -8,6 +8,7 @@
 import Foundation
 
 class TableViewCellModel {
+    let id: Int
     let image: String?
     let name: String
     let address: String
@@ -18,6 +19,7 @@ class TableViewCellModel {
     var imageData: Data?
     
     init(
+        id:Int,
         image:String,
         name:String,
         address:String,
@@ -26,6 +28,7 @@ class TableViewCellModel {
         latitude:Float,
         longitude:Float
     ) {
+        self.id = likeCount
         self.image = image
         self.name = name
         self.address = address

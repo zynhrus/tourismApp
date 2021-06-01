@@ -26,8 +26,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         UISearchBar.appearance().tintColor = UIColor.black
         
-        
-        
         createSearchBar()
         
         APICaller.shared.getAllData{ [weak self] result in
@@ -35,6 +33,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             case .success(let models):
                 self!.viewModels = models.compactMap({
                     TableViewCellModel(
+                        id: $0.id ?? 0,
                         image: $0.image ?? "",
                         name: $0.name ?? "M/A",
                         address: $0.address ?? "",
@@ -44,7 +43,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         longitude: $0.longitude ?? 0
                     )
                 })
-
                 
                 DispatchQueue.main.async {
                     self!.tableView.reloadData()
@@ -67,8 +65,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as? TableViewCell {
             
-            cell.placeImage.loadImageUrl(url: URL(string: viewModels[indexPath.row].image!)!)
-            
             cell.configure(with: viewModels[indexPath.row])
             
             return cell
@@ -78,15 +74,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            // Memanggil View Controller dengan berkas NIB/XIB di dalamnya
-            let detail = DetailPageController()
-            
-            // Mengirim data hero
-            detail.place = viewModels[indexPath.row]
-            
-            // Push/mendorong view controller lain
-            self.navigationController?.pushViewController(detail, animated: true)
-        }
+        let detail = DetailPageController()
+        
+        detail.place = viewModels[indexPath.row]
+        
+        detail.placeImage?.heroID = String(viewModels[indexPath.row].id)
+        
+        detail.placeName?.heroID = "title\(String(viewModels[indexPath.row].id))"
+        
+        self.showHero(detail)
+    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, !text.isEmpty else {
@@ -98,6 +95,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             case .success(let models):
                 self!.viewModels = models.compactMap({
                     TableViewCellModel(
+                        id: $0.id ?? 0,
                         image: $0.image ?? "",
                         name: $0.name ?? "M/A",
                         address: $0.address ?? "",
@@ -106,8 +104,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         latitude: $0.latitude ?? 0,
                         longitude: $0.longitude ?? 0
                     )
-            }).filter({$0.name.localizedCaseInsensitiveContains(text)})
-
+                }).filter({$0.name.localizedCaseInsensitiveContains(text)})
                 
                 DispatchQueue.main.async {
                     self!.tableView.reloadData()
@@ -127,6 +124,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             case .success(let models):
                 self!.viewModels = models.compactMap({
                     TableViewCellModel(
+                        id: $0.id ?? 0,
                         image: $0.image ?? "",
                         name: $0.name ?? "M/A",
                         address: $0.address ?? "",
@@ -135,8 +133,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         latitude: $0.latitude ?? 0,
                         longitude: $0.longitude ?? 0
                     )
-            })
-
+                })
                 
                 DispatchQueue.main.async {
                     self!.tableView.reloadData()
@@ -147,18 +144,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
-}
-
-extension UIImageView {
-    func loadImageUrl(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        enableHero()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        disableHero()
     }
 }

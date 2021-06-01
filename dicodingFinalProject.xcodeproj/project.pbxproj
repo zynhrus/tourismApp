@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		970CB69C2660D91A000BB77C /* DetailPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970CB69B2660D91A000BB77C /* DetailPageController.swift */; };
+		971C4A152665646000334C5E /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = 971C4A142665646000334C5E /* Hero */; };
+		971C4A162665646000334C5E /* Hero in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 971C4A142665646000334C5E /* Hero */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		971C4A1B266567CB00334C5E /* HeroHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971C4A1A266567CB00334C5E /* HeroHelper.swift */; };
 		97358EE0265D6E9F004A3D46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97358EDF265D6E9F004A3D46 /* AppDelegate.swift */; };
 		97358EE2265D6E9F004A3D46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97358EE1265D6E9F004A3D46 /* SceneDelegate.swift */; };
 		97358EE4265D6E9F004A3D46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97358EE3265D6E9F004A3D46 /* ViewController.swift */; };
@@ -18,16 +21,29 @@
 		97358EFC265D7A04004A3D46 /* ProfilePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97358EFB265D7A04004A3D46 /* ProfilePageController.swift */; };
 		976BCC2E265F7137005719C7 /* apiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976BCC2D265F7137005719C7 /* apiModel.swift */; };
 		976BCC30265F8620005719C7 /* tableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976BCC2F265F8620005719C7 /* tableViewCellModel.swift */; };
-		976BCC33265FFFAE005719C7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976BCC31265FFFAE005719C7 /* DetailViewController.swift */; };
-		976BCC34265FFFAE005719C7 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 976BCC32265FFFAE005719C7 /* DetailViewController.xib */; };
 		9773BD52265E8B13005940F6 /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9773BD51265E8B13005940F6 /* profile.swift */; };
 		9773BD55265ECD14005940F6 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9773BD54265ECD14005940F6 /* APICaller.swift */; };
 		9773BD5A265ECE55005940F6 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9773BD58265ECE55005940F6 /* TableViewCell.swift */; };
 		9773BD5B265ECE55005940F6 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9773BD59265ECE55005940F6 /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		971C4A172665646000334C5E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				971C4A162665646000334C5E /* Hero in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		970CB69B2660D91A000BB77C /* DetailPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageController.swift; sourceTree = "<group>"; };
+		971C4A1A266567CB00334C5E /* HeroHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHelper.swift; sourceTree = "<group>"; };
 		97358EDC265D6E9F004A3D46 /* dicodingFinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dicodingFinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97358EDF265D6E9F004A3D46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97358EE1265D6E9F004A3D46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,8 +56,6 @@
 		97358EFB265D7A04004A3D46 /* ProfilePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageController.swift; sourceTree = "<group>"; };
 		976BCC2D265F7137005719C7 /* apiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiModel.swift; sourceTree = "<group>"; };
 		976BCC2F265F8620005719C7 /* tableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewCellModel.swift; sourceTree = "<group>"; };
-		976BCC31265FFFAE005719C7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		976BCC32265FFFAE005719C7 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		9773BD51265E8B13005940F6 /* profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
 		9773BD54265ECD14005940F6 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		9773BD58265ECE55005940F6 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -53,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				971C4A152665646000334C5E /* Hero in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +111,6 @@
 				97358EE5265D6E9F004A3D46 /* Main.storyboard */,
 				97358EF7265D6FAC004A3D46 /* ProfilePage.storyboard */,
 				9773BD59265ECE55005940F6 /* TableViewCell.xib */,
-				976BCC32265FFFAE005719C7 /* DetailViewController.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -107,7 +121,6 @@
 				97358EE3265D6E9F004A3D46 /* ViewController.swift */,
 				97358EFB265D7A04004A3D46 /* ProfilePageController.swift */,
 				9773BD58265ECE55005940F6 /* TableViewCell.swift */,
-				976BCC31265FFFAE005719C7 /* DetailViewController.swift */,
 				970CB69B2660D91A000BB77C /* DetailPageController.swift */,
 			);
 			path = controller;
@@ -136,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				9773BD54265ECD14005940F6 /* APICaller.swift */,
+				971C4A1A266567CB00334C5E /* HeroHelper.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -150,12 +164,16 @@
 				97358ED8265D6E9F004A3D46 /* Sources */,
 				97358ED9265D6E9F004A3D46 /* Frameworks */,
 				97358EDA265D6E9F004A3D46 /* Resources */,
+				971C4A172665646000334C5E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = dicodingFinalProject;
+			packageProductDependencies = (
+				971C4A142665646000334C5E /* Hero */,
+			);
 			productName = dicodingFinalProject;
 			productReference = 97358EDC265D6E9F004A3D46 /* dicodingFinalProject.app */;
 			productType = "com.apple.product-type.application";
@@ -183,6 +201,9 @@
 				Base,
 			);
 			mainGroup = 97358ED3265D6E9F004A3D46;
+			packageReferences = (
+				971C4A132665646000334C5E /* XCRemoteSwiftPackageReference "Hero" */,
+			);
 			productRefGroup = 97358EDD265D6E9F004A3D46 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -198,7 +219,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				97358EEC265D6EA0004A3D46 /* LaunchScreen.storyboard in Resources */,
-				976BCC34265FFFAE005719C7 /* DetailViewController.xib in Resources */,
 				9773BD5B265ECE55005940F6 /* TableViewCell.xib in Resources */,
 				97358EE9265D6EA0004A3D46 /* Assets.xcassets in Resources */,
 				97358EF8265D6FAC004A3D46 /* ProfilePage.storyboard in Resources */,
@@ -221,7 +241,7 @@
 				976BCC2E265F7137005719C7 /* apiModel.swift in Sources */,
 				976BCC30265F8620005719C7 /* tableViewCellModel.swift in Sources */,
 				9773BD52265E8B13005940F6 /* profile.swift in Sources */,
-				976BCC33265FFFAE005719C7 /* DetailViewController.swift in Sources */,
+				971C4A1B266567CB00334C5E /* HeroHelper.swift in Sources */,
 				9773BD5A265ECE55005940F6 /* TableViewCell.swift in Sources */,
 				97358EE2265D6E9F004A3D46 /* SceneDelegate.swift in Sources */,
 			);
@@ -425,6 +445,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		971C4A132665646000334C5E /* XCRemoteSwiftPackageReference "Hero" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/HeroTransitions/Hero.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		971C4A142665646000334C5E /* Hero */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 971C4A132665646000334C5E /* XCRemoteSwiftPackageReference "Hero" */;
+			productName = Hero;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 97358ED4265D6E9F004A3D46 /* Project object */;
 }

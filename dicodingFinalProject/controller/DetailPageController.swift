@@ -25,17 +25,26 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Create View
         createViews()
         
+        // Set Constraints
         setViewConstraints()
+        
+        // Set Hero Id
+        setHeroId()
         
         // ScrollView
         scrollView.backgroundColor = UIColor.white
         
-        // Label Customization
+        // Description
         placeDescription.text = place?.description
         
+        // Name
         placeName.text = place?.name
+        
+        // Address
+        placeAddress.text = place?.address
         
         loadImage(with: place!)
     }
@@ -53,7 +62,6 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
                     }
                 }
             }
-            
             task.resume()
         }
     }
@@ -75,6 +83,12 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
         placeName.numberOfLines = 0
         self.scrollView.addSubview(placeName)
         
+        // Address
+        placeAddress = UILabel()
+        placeAddress.numberOfLines = 0
+        placeAddress.textColor = UIColor.gray
+        self.scrollView.addSubview(placeAddress)
+        
         // Header Container
         headerContainerView = UIView()
         headerContainerView.backgroundColor = .gray
@@ -86,8 +100,10 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
         placeImage.contentMode = .scaleAspectFill
         self.headerContainerView.addSubview(placeImage)
         
+        // Map
         self.scrollView.addSubview(mapView)
         
+        // Annotation
         annotation.title = place?.name
         annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(place!.latitude), longitude: CLLocationDegrees(place!.longitude))
         self.mapView.addAnnotation(annotation)
@@ -96,8 +112,17 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
         mapView.setRegion(region, animated: true)
     }
     
+    func setHeroId() {
+        placeImage?.heroID = "image\(String(place!.id))"
+        
+        placeName?.heroID = "title\(String(place!.id))"
+        
+        placeAddress?.heroID = "address\(String(place!.id))"
+    }
+    
     func setViewConstraints() {
         let screenSize = UIScreen.main.bounds
+        
         // ScrollView Constraints
         self.scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -107,7 +132,7 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
             self.scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         
-        // Label Constraints
+        // Place Description Constraints
         self.placeDescription.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.placeDescription.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
@@ -116,14 +141,23 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
             self.placeDescription.topAnchor.constraint(equalTo: self.scrollView.topAnchor, constant: screenSize.height / 4 )
         ])
         
-        // Label Constraints
+        //Place Name Constraints
         self.placeName.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.placeName.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
             self.placeName.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
-            self.placeName.bottomAnchor.constraint(equalTo: self.placeDescription.topAnchor, constant: -10),
+            self.placeName.bottomAnchor.constraint(equalTo: self.placeDescription.topAnchor, constant: -25),
         ])
         
+        //Place Address Constraints
+        self.placeAddress.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.placeAddress.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+            self.placeAddress.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
+            self.placeAddress.bottomAnchor.constraint(equalTo: self.placeDescription.topAnchor, constant: -5),
+        ])
+        
+        //Map View Constraints
         self.mapView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.mapView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
@@ -131,7 +165,7 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
             self.mapView.topAnchor.constraint(equalTo: self.placeDescription.bottomAnchor, constant: 20),
             self.mapView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor, constant: -20),
         ])
-
+        
         // Header Container Constraints
         let headerContainerViewBottom : NSLayoutConstraint!
         
@@ -141,10 +175,10 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
             self.headerContainerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.headerContainerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
-        headerContainerViewBottom = self.headerContainerView.bottomAnchor.constraint(equalTo: self.placeDescription.topAnchor, constant: -45)
+        headerContainerViewBottom = self.headerContainerView.bottomAnchor.constraint(equalTo: self.placeDescription.topAnchor, constant: -60)
         headerContainerViewBottom.priority = UILayoutPriority(rawValue: 900)
         headerContainerViewBottom.isActive = true
-
+        
         // ImageView Constraints
         let imageViewTopConstraint: NSLayoutConstraint!
         placeImage.translatesAutoresizingMaskIntoConstraints = false
@@ -153,7 +187,7 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
             self.placeImage.trailingAnchor.constraint(equalTo: self.headerContainerView.trailingAnchor),
             self.placeImage.bottomAnchor.constraint(equalTo: self.headerContainerView.bottomAnchor)
         ])
-
+        
         imageViewTopConstraint = self.placeImage.topAnchor.constraint(equalTo: self.view.topAnchor)
         imageViewTopConstraint.priority = UILayoutPriority(rawValue: 900)
         imageViewTopConstraint.isActive = true
@@ -161,20 +195,17 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // Make sure the top constraint of the ScrollView is equal to Superview and not Safe Area
-        
-        // Hide the navigation bar completely
-        //self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
+        enableHero()
         
         // Make the Navigation Bar background transparent
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.tintColor = .white
-
-        // Remove 'Back' text and Title from Navigation Bar
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.title = ""
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        disableHero()
     }
 }
