@@ -12,9 +12,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     private var viewModels = [TableViewCellModel]()
     private let searchVC = UISearchController(searchResultsController: nil)
+    let progressBar = UIActivityIndicatorView(style: .large)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        progressBar.startAnimating()
+        
+        createProgressBar()
         
         title = "Traveling Places"
         tableView.dataSource = self
@@ -45,12 +50,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 })
                 
                 DispatchQueue.main.async {
+                    self!.progressBar.stopAnimating()
+                    
                     self!.tableView.reloadData()
                 }
             case .failure(let error):
                 print("Error ::::::: \(error)")
             }
         }
+    }
+    
+    func createProgressBar() {
+        view.addSubview(progressBar)
+        progressBar.translatesAutoresizingMaskIntoConstraints = false
+        progressBar.hidesWhenStopped = true
+        progressBar.color = UIColor.black
+        progressBar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        progressBar.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     func createSearchBar() {
@@ -86,6 +102,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        progressBar.startAnimating()
+        
         guard let text = searchBar.text, !text.isEmpty else {
             return
         }
@@ -107,6 +125,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }).filter({$0.name.localizedCaseInsensitiveContains(text)})
                 
                 DispatchQueue.main.async {
+                    self!.progressBar.stopAnimating()
                     self!.tableView.reloadData()
                     self?.searchVC.dismiss(animated: true, completion: nil)
                 }
@@ -119,6 +138,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        progressBar.startAnimating()
+        
         APICaller.shared.getAllData{ [weak self] result in
             switch result {
             case .success(let models):
@@ -136,6 +157,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 })
                 
                 DispatchQueue.main.async {
+                    self!.progressBar.stopAnimating()
                     self!.tableView.reloadData()
                     self?.searchVC.dismiss(animated: true, completion: nil)
                 }
