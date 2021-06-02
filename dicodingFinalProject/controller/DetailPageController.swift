@@ -85,7 +85,6 @@ class DetailPageController: UIViewController, UIScrollViewDelegate {
         
         // Address
         placeAddress = UILabel()
-        placeAddress.numberOfLines = 0
         placeAddress.textColor = UIColor.gray
         self.scrollView.addSubview(placeAddress)
         
